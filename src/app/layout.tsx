@@ -1,20 +1,20 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { ClerkProvider } from '@clerk/nextjs'
-import Providers from '@/components/Provider'
-import { Toaster} from 'react-hot-toast'
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
+import Providers from "@/components/Providers";
+import { Toaster } from "react-hot-toast";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'ChatPDF',
-}
+  title: "ChatPDF",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <ClerkProvider>
@@ -25,5 +25,5 @@ export default function RootLayout({
         </html>
       </Providers>
     </ClerkProvider>
-  )
+  );
 }
