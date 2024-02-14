@@ -1,11 +1,11 @@
-import { Pinecone } from '@pinecone-database/pinecone'
+import {Pinecone} from "@pinecone-database/pinecone"
+import { downloadFromS3 } from "./s3-server";
 
-let pinecone: Pinecone | null
+let pinecone: Pinecone | null = null;
 
 export const getPinecone = async () => {
     if(!pinecone) {
         pinecone = new Pinecone({
-            environment: process.env.PINECONE_ENVIRONMENT!,
             apiKey: process.env.PINECONE_API_KEY!
         })
     }
@@ -13,5 +13,7 @@ export const getPinecone = async () => {
 }
 
 export async function loadS3IntoPinecone(fileKey: string) {
-    
+    console.log('downloading S3 into file system')
+    const file_name = await downloadFromS3(fileKey)
+
 }
